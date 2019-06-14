@@ -15,24 +15,21 @@
         <div class="navbar-start">
 
           <div class="navbar-item">
-            <a href="#" @click.stop="goMaps()">Kaart</a>
+            <router-link to="map" @click="closeMenu()">Kaart</router-link>
           </div>
 
           <div class="navbar-item">
-            <a href="#" @click.stop="goTasks()">Research Task lijst</a>
+            <router-link to="tasks" @click="closeMenu()">Research Task lijst</router-link>
           </div>
 
           <div class="navbar-item">
-            <a href="#" @click.stop="goStats()">Shiny stats</a>
+            <router-link to="shinystats" @click="closeMenu()">Shiny stats</router-link>
           </div>
 
           <div class="navbar-item">
-            <a href="#" @click.stop="goHelp()">Help!</a>
+            <router-link to="help" @click="closeMenu()">Help!</router-link>
           </div>
 
-          <div class="navbar-item">
-
-          </div>
         </div>
         <div class="navbar-end">
         </div>
@@ -51,23 +48,12 @@ export default {
   },
   methods: {
     toggleMenu () {
+      // show or hide main menu when on small screen
       this.menuActive = !this.menuActive
     },
-    goMaps () {
+    closeMenu () {
+      console.log('closeMenu')
       this.menuActive = false
-      this.$router.push('/map')
-    },
-    goStats () {
-      this.menuActive = false
-      this.$router.push('/shinystats')
-    },
-    goTasks () {
-      this.menuActive = false
-      this.$router.push('/tasks')
-    },
-    goHelp () {
-      this.menuActive = false
-      this.$router.push('/help')
     }
   }
 }

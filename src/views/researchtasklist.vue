@@ -5,7 +5,7 @@
         <h2 class="is-title is-size-4">
           Er zijn {{ tasks.length }} Field Research Tasks:
         </h2>
-        <div v-for="task in tasks">
+        <div v-for="(task,index) in tasks" :key="'task'+index">
           <div class="is-title is-size-5">
             <a :href="task.googleMapsLink" target="maps">{{ task.fieldresearch[0].name }}</a>
           </div>

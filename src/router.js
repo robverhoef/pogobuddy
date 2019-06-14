@@ -10,6 +10,7 @@ Vue.use(Router)
 export default new Router({
   base: '/',
   mode: 'hash',
+  linkActiveClass: 'is-active',
   routes: [
     {
       path: '/',
