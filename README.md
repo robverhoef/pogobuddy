@@ -1,5 +1,7 @@
 # Pogo Buddy
-Please note; this is experimental. It requires an API which is not yet available here.
+Please note; this is experimental. It requires an API which is not yet available here. 
+
+![alt text](pogobuddy.png "Pogo Buddy")
 
 ## Project setup
 ```
