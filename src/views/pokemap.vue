@@ -66,7 +66,6 @@ export default {
   },
   data () {
     return {
-      intvGym: null,
       geoid: null, // id for geo watcher
       zoom: 16,
       // url:'https://{s}.tile.osm.org/{z}/{x}/{y}.png',
@@ -94,6 +93,7 @@ export default {
       return this.gyms
     }
   },
+
   methods: {
     requestInterval (fn, delay) {
       var requestAnimFrame = (function () {
@@ -115,6 +115,7 @@ export default {
       handle.value = requestAnimFrame(loop)
       return handle
     },
+
     updatePosition (pos) {
       const crd = pos.coords
       this.position = { lat: crd.latitude, lng: crd.longitude }
@@ -125,17 +126,29 @@ export default {
         this.$refs.mymap.mapObject.flyTo(this.position, 16, { animate: true })
       }
     },
+
     updatePositionError (err) {
       console.log(err)
     },
+
     refreshGymsAndStops () {
-      axios.get(window.API_BASE_URL + '/api/gymlist').then((response) => {
-        this.gyms = response.data
-      })
-      axios.get(window.API_BASE_URL + 'api/stoplist').then((response) => {
-        this.stops = response.data
-      })
+      axios.get(window.API_BASE_URL + '/api/gymlist')
+        .then((response) => {
+          this.gyms = response.data
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+
+      axios.get(window.API_BASE_URL + 'api/stoplist')
+        .then((response) => {
+          this.stops = response.data
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
+
     gymIcon (gym) {
       const icons = [
         'images/Gym.svg',
@@ -154,6 +167,7 @@ export default {
         iconAnchor: [12, 40]
       })
     },
+
     stopIcon (stop) {
       const icons = [
         'images/Stop.svg',
@@ -166,17 +180,20 @@ export default {
         iconAnchor: [6, 20]
       })
     },
+
     getloc: function (place) {
       if (place !== null && place.lat && place.lon) {
         return { lat: place.lat, lng: place.lon }
       }
       return { lat: 0, lng: 0 }
     },
+
     converttime (tmstmp) {
       let d = new Date(tmstmp * 1000)
       let out = d.getHours() + ':' + d.getMinutes()
       return out
     },
+
     stopInfo (stop) {
       let out = '<strong>' + stop.name + '</strong><br/>'
       if (stop.fieldresearch.length > 0) {
@@ -185,6 +202,7 @@ export default {
       out += '<a href="' + stop.googleMapsLink + '" target="_blank">Route</a>'
       return out
     },
+
     gymInfo (gym) {
       let out = '<strong>' + gym.gymname + '</strong><br/>'
       for (let a = 0; a < gym.raid.length; a++) {
@@ -198,6 +216,7 @@ export default {
       out += '<a href="' + gym.googleMapsLink + '" target="_blank">Route</a>'
       return out
     },
+
     moiIcon () {
       return L.icon({
         iconUrl: 'images/Moi.svg',
@@ -215,6 +234,7 @@ export default {
       this.mapFollows = what
     }
   },
+
   mounted () {
     console.log('MOUNTED pokemap', this)
     if (this.initialpos === null) {
@@ -233,6 +253,7 @@ export default {
     this.requestInterval(this.refreshGymsAndStops, 60000)
     this.refreshGymsAndStops()
   },
+
   beforeDestroy: function () {
     if (navigator.geolocation) {
       navigator.geolocation.clearWatch(this.geoid)

@@ -17,9 +17,15 @@
           <div class="navbar-item">
             <a href="#" @click.stop="goMaps()">Kaart</a>
           </div>
+
+          <div class="navbar-item">
+            <a href="#" @click.stop="goTasks()">Research Task lijst</a>
+          </div>
+
           <div class="navbar-item">
             <a href="#" @click.stop="goStats()">Shiny stats</a>
           </div>
+
           <div class="navbar-item">
             <a href="#" @click.stop="goHelp()">Help!</a>
           </div>
@@ -54,6 +60,10 @@ export default {
     goStats () {
       this.menuActive = false
       this.$router.push('/shinystats')
+    },
+    goTasks () {
+      this.menuActive = false
+      this.$router.push('/tasks')
     },
     goHelp () {
       this.menuActive = false

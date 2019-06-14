@@ -4,7 +4,7 @@ import Home from './views/Home.vue'
 import Pokemap from './views/pokemap'
 import Help from './views/help'
 import ShinyStats from './views/shinystats'
-
+import ResearchTaskList from './views/researchtasklist'
 Vue.use(Router)
 
 export default new Router({
@@ -24,6 +24,11 @@ export default new Router({
           path: '/help',
           name: 'help',
           component: Help
+        },
+        {
+          path: '/tasks',
+          name: 'tasks',
+          component: ResearchTaskList
         },
         {
           path: '/',
