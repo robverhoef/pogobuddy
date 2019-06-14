@@ -10,7 +10,6 @@
 <script>
 
 import MainMenu from '../components/mainmenu'
-
 export default {
   components: {
     'mainmenu': MainMenu

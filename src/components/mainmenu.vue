@@ -42,17 +42,23 @@
 export default {
   data () {
     return {
-      menuActive: false,
-      mapFollows: false
+      menuActive: false
     }
   },
+
+  watch: {
+    '$route' () {
+      console.log('route changed')
+      this.closeMenu()
+    }
+  },
+
   methods: {
     toggleMenu () {
       // show or hide main menu when on small screen
       this.menuActive = !this.menuActive
     },
     closeMenu () {
-      console.log('closeMenu')
       this.menuActive = false
     }
   }
