@@ -181,19 +181,19 @@ export default {
     },
     async updateStats () {
       if (this.target) {
-        axios.get(window.endpoint + 'api/shiny/' + this.target + '/hour')
+        axios.get(window.API_BASE_URL + 'api/shiny/' + this.target + '/hour')
           .then(response => {
             this.byhour = response.data
           })
-        axios.get(window.endpoint + 'api/shiny/' + this.target + '/day')
+        axios.get(window.API_BASE_URL + 'api/shiny/' + this.target + '/day')
           .then(response => {
             this.byday = response.data
           })
-        axios.get(window.endpoint + 'api/shiny/' + this.target + '/gym')
+        axios.get(window.API_BASE_URL + 'api/shiny/' + this.target + '/gym')
           .then(response => {
             this.bygym = response.data
           })
-        axios.get(window.endpoint + 'api/shinytotal/' + this.target)
+        axios.get(window.API_BASE_URL + 'api/shinytotal/' + this.target)
           .then(response => {
             this.shinytotal = response.data
           })
