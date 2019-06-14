@@ -180,22 +180,24 @@ export default {
       this.updateStats()
     },
     async updateStats () {
-      axios.get(window.endpoint + 'api/shiny/' + this.target + '/hour')
-        .then(response => {
-          this.byhour = response.data
-        })
-      axios.get(window.endpoint + 'api/shiny/' + this.target + '/day')
-        .then(response => {
-          this.byday = response.data
-        })
-      axios.get(window.endpoint + 'api/shiny/' + this.target + '/gym')
-        .then(response => {
-          this.bygym = response.data
-        })
-      axios.get(window.endpoint + 'api/shinytotal/' + this.target)
-        .then(response => {
-          this.shinytotal = response.data
-        })
+      if (this.target) {
+        axios.get(window.endpoint + 'api/shiny/' + this.target + '/hour')
+          .then(response => {
+            this.byhour = response.data
+          })
+        axios.get(window.endpoint + 'api/shiny/' + this.target + '/day')
+          .then(response => {
+            this.byday = response.data
+          })
+        axios.get(window.endpoint + 'api/shiny/' + this.target + '/gym')
+          .then(response => {
+            this.bygym = response.data
+          })
+        axios.get(window.endpoint + 'api/shinytotal/' + this.target)
+          .then(response => {
+            this.shinytotal = response.data
+          })
+      }
     },
     copysuc6 () {
       this.$toastr.s('Gekopieerd!')
@@ -203,7 +205,7 @@ export default {
   },
 
   mounted () {
-    axios.get(window.endpoint + 'api/shiny/targetoptions').then(response => {
+    axios.get(window.API_BASE_URL + 'api/shiny/targetoptions').then(response => {
       console.log('target options', response.data)
       this.targetoptions = response.data
       if (this.targetoptions.length > 0) {
