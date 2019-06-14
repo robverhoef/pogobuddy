@@ -1,34 +1,35 @@
-# pogobuddy
+# Pogo Buddy
+Please note; this is experimental. It requires an API which is not yet available here.
 
 ## Project setup
 ```
-yarn install
+npm i
 ```
+### Modify API URL and mapping service URL
+- Copy src/example.settings.js to src/settings.js
+- Edit src/settings.js
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
+npm run serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
+npm run build
 ```
 
 ### Run your tests
 ```
-yarn run test
+npm run test
 ```
 
 ### Lints and fixes files
 ```
-yarn run lint
+npm run lint
 ```
 
 ### Run your unit tests
 ```
-yarn run test:unit
+npm run test:unit
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
