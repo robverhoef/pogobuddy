@@ -2,7 +2,9 @@
   <div style="height:100%; position:relative">
     <div style="height: 80%;">
       <mainmenu></mainmenu>
-      <router-view></router-view>
+      <vue-page-transition name="fade-in-up" class="page">
+        <router-view></router-view>
+      </vue-page-transition>
     </div>
   </div>
 </template>
