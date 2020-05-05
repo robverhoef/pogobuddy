@@ -31,13 +31,13 @@
     </l-map>
     <div class="container">
       <div class="columns map-controls is-mobile">
-        <div class="column is-6" v-if="position!==null">
+        <div class="column is-4" v-if="position!==null">
           <a href="#" id="bCenter" class="is-small button" @click.prevent="centerMe">
             <span class="icon"><i class="typcn typcn-location-outline"></i></span> <span>Waar ben ik?</span>
           </a>
         </div>
 
-        <div class="column is-6" v-if="position!==null">
+        <div class="column is-4" v-if="position!==null">
           <div class="field">
             <input type="checkbox"
               class="switch" id="followmap"
@@ -47,6 +47,9 @@
               :false-value="false">
               <label for="followmap">Kaart volgt mij</label>
           </div>
+        </div>
+        <div class="column is-4" v-if="position!==null">
+          <a :href="telegram_url">Meedoen</a>
         </div>
       </div>
     </div>
@@ -68,6 +71,7 @@ export default {
     return {
       geoid: null, // id for geo watcher
       zoom: 16,
+      telegram_url: window.TELEGRAM_GROUP_URL,
       // url:'https://{s}.tile.osm.org/{z}/{x}/{y}.png',
       url: window.MAP_URL,
       attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
