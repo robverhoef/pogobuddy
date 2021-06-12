@@ -132,7 +132,7 @@ export default {
     },
 
     updatePositionError (err) {
-      console.log(err)
+      console.error(err)
     },
 
     refreshGymsAndStops () {
@@ -141,7 +141,7 @@ export default {
           this.gyms = response.data
         })
         .catch((error) => {
-          console.log(error)
+          console.error(error)
         })
 
       axios.get(window.API_BASE_URL + 'api/stoplist')
@@ -149,7 +149,7 @@ export default {
           this.stops = response.data
         })
         .catch((error) => {
-          console.log(error)
+          console.error(error)
         })
     },
 
@@ -240,7 +240,6 @@ export default {
   },
 
   mounted () {
-    console.log('MOUNTED pokemap', this)
     if (this.initialpos === null) {
       this.initialpos = this.position
     }

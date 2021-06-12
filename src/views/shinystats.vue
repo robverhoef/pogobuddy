@@ -176,7 +176,6 @@ export default {
   },
   methods: {
     targetSelected (event) {
-      console.log(event)
       this.updateStats()
     },
     async updateStats () {
@@ -206,7 +205,6 @@ export default {
 
   mounted () {
     axios.get(window.API_BASE_URL + 'api/shiny/targetoptions').then(response => {
-      console.log('target options', response.data)
       this.targetoptions = response.data
       if (this.targetoptions.length > 0) {
         this.target = this.targetoptions[0]
