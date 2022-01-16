@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/leaflet": "^1.5.7",
     "@vue/cli-service": "^4.5.13",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bulma": "^0.7.5",
     "bulma-switch": "^2.0.0",
     "core-js": "^2.6.5",
